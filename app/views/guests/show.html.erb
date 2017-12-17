@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @guest.name %>
+</p>
+<p>
+  <% @guest.reservations.each do |reservation| %>
+    <strong>Checkin:</strong>
+    <%= reservation.checkin %>
+    <strong>Checkout:</strong>
+    <%= reservation.checkout %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_guest_path(@guest) %> |
+<%= link_to 'Back', guests_path %>

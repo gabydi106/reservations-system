@@ -1,0 +1,22 @@
+= form_with(model: guest, local: true) do |form|
+  - if guest.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(guest.errors.count, "error")
+        prohibited this guest from being saved:
+      %ul
+        - guest.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :name
+    = form.text_field :name, id: :guest_name
+
+  = form.fields_for :reservations do |r|
+    .field
+      = r.label :checkin
+      = r.date_select :checkin, id: :checkin
+      = r.label :checkout
+      = r.date_select :checkout, id: :checkout
+
+  .actions
+    = form.submit
