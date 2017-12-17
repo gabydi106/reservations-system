@@ -8,6 +8,7 @@
       <th>Checkin</th>
       <th>Checkout</th>
       <th>Guest</th>
+      <th>Number of Beds</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= reservation.checkin %></td>
         <td><%= reservation.checkout %></td>
         <td><%= reservation.guest.name %></td>
+        <td><%= reservation.number_of_beds %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -15,5 +15,10 @@
   <%= link_to @reservation.guest.name, guest_url %>
 </p>
 
+<p>
+  <strong>Number of Beds:</strong>
+  <%= @reservation.number_of_beds %>
+</p>
+
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
