@@ -10,9 +10,11 @@ class GuestsController < ApplicationController
 
   def new
     @guest = Guest.new
+    @guest.reservations.build
   end
 
   def edit
+    @guest.reservations.build
   end
 
   def create
@@ -55,6 +57,6 @@ class GuestsController < ApplicationController
     end
 
     def guest_params
-      params.require(:guest).permit(:name, reservations_attributes: [:id, :checkin, :checkout])
+      params.require(:guest).permit(:name, reservations_attributes: [:id, :checkin, :checkout, :number_of_beds])
     end
 end

@@ -17,6 +17,8 @@
       = r.date_select :checkin, id: :checkin
       = r.label :checkout
       = r.date_select :checkout, id: :checkout
+      = r.label :number_of_beds
+      = r.text_field :number_of_beds, id: :number_of_beds
 
   .actions
     = form.submit
