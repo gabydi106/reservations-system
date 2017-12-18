@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Reservation #:
+  = @bed.reservation.id
+%p
+  %strong Checkin:
+  = @bed.reservation.checkin
+%p
+  %strong Checkout:
+  = @bed.reservation.checkout
+= link_to 'Edit', edit_bed_path(@bed)
+|
+= link_to 'Back', beds_path
