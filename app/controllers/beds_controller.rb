@@ -55,6 +55,6 @@ class BedsController < ApplicationController
     end
 
     def bed_params
-      params.require(:bed).permit(reservations_attributes: [:id])
+      params.require(:bed).permit(:available, reservations_attributes: [:id])
     end
 end

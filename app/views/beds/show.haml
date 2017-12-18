@@ -1,13 +1,17 @@
 %p#notice= notice
 %p
   %strong Reservation #:
-  = @bed.reservation.id
+  = @bed.reservation ? @bed.reservation.id : "n/a"
 %p
   %strong Checkin:
-  = @bed.reservation.checkin
+  = @bed.reservation ? @bed.reservation.checkin : "n/a"
 %p
   %strong Checkout:
-  = @bed.reservation.checkout
+  = @bed.reservation ? @bed.reservation.checkout : "n/a"
+%p
+  %strong Available:
+  = @bed.available
+
 = link_to 'Edit', edit_bed_path(@bed)
 |
 = link_to 'Back', beds_path

@@ -7,13 +7,16 @@
       %th Reservation #
       %th Checkin
       %th Checkout
+      %th Available
       %th{:colspan => "3"}
   %tbody
     - @beds.each do |bed|
       %tr
         %td= bed.id
-        %td= link_to bed.reservation.id, reservation_url(bed.reservation.id)
-        %td= bed.reservation.checkin
-        %td= bed.reservation.checkout
+        %td= bed.reservation ? (link_to bed.reservation.id, reservation_url(bed.reservation.id)) : nil
+        %td= bed.reservation ? bed.reservation.checkin : nil
+        %td= bed.reservation ? bed.reservation.checkout : nil
+        %td= bed.available
         %td= link_to 'Edit', edit_bed_path(bed)
 %br/
+= link_to 'New Bed', new_bed_path

@@ -8,6 +8,10 @@
         - bed.errors.full_messages.each do |message|
           %li= message
 
+  .field
+    = form.label :available
+    = form.text_field :available, id: :bed_available
+
   = form.fields_for :reservations do |r|
     .field
       = r.label :id
