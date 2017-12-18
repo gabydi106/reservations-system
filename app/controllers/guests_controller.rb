@@ -14,7 +14,6 @@ class GuestsController < ApplicationController
   end
 
   def edit
-    @guest.reservations.build
   end
 
   def create

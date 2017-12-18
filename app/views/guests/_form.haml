@@ -14,11 +14,15 @@
   = form.fields_for :reservations do |r|
     .field
       = r.label :checkin
-      = r.date_select :checkin, id: :checkin
+      = r.text_field :checkin, id: :reservation_checkin
       = r.label :checkout
-      = r.date_select :checkout, id: :checkout
+      = r.text_field :checkout, id: :reservation_checkout
       = r.label :number_of_beds
       = r.text_field :number_of_beds, id: :number_of_beds
 
   .actions
     = form.submit
+
+:javascript
+  var checkin_datepicker = new Pikaday({ field: document.getElementById('reservation_checkin') });
+  var checkout_datepicker = new Pikaday({ field: document.getElementById('reservation_checkout') });
