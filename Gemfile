@@ -36,6 +36,8 @@ gem 'pry-nav'
 
 gem 'hamlit'
 
+gem 'pikaday-gem'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

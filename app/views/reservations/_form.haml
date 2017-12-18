@@ -9,10 +9,10 @@
           %li= message
   .field
     = form.label :checkin
-    = form.date_select :checkin, id: :reservation_checkin
+    = form.text_field :checkin, id: :reservation_checkin
   .field
     = form.label :checkout
-    = form.date_select :checkout, id: :reservation_checkout
+    = form.text_field :checkout, id: :reservation_checkout
   .field
     = form.label :guest_id
     = form.text_field :guest_id, id: :reservation_guest_id
@@ -22,3 +22,6 @@
   .actions
     = form.submit
 
+:javascript
+  var checkin_datepicker = new Pikaday({ field: document.getElementById('reservation_checkin') });
+  var checkout_datepicker = new Pikaday({ field: document.getElementById('reservation_checkout') });
