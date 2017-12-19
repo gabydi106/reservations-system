@@ -5,10 +5,12 @@
 <table>
   <thead>
     <tr>
+      <th>Reference #</th>
       <th>Checkin</th>
       <th>Checkout</th>
       <th>Guest</th>
       <th>Number of Beds</th>
+      <th>Beds Assigned</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +18,12 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
+        <td><%= reservation.id %></td>
         <td><%= reservation.checkin %></td>
         <td><%= reservation.checkout %></td>
         <td><%= reservation.guest.name %></td>
         <td><%= reservation.number_of_beds %></td>
+        <td><%= reservation.beds_assigned %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

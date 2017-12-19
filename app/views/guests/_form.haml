@@ -1,27 +1,23 @@
-= form_with(model: guest, local: true) do |form|
-  - if guest.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(guest.errors.count, "error")
-        prohibited this guest from being saved:
-      %ul
-        - guest.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :name
-    = form.text_field :name, id: :guest_name
-
-  = form.fields_for :reservations do |r|
+.form
+  = form_with(model: guest, local: true) do |form|
+    - if guest.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(guest.errors.count, "error")
+          prohibited this guest from being saved:
+        %ul
+          - guest.errors.full_messages.each do |message|
+            %li= message
     .field
-      = r.label :checkin
-      = r.text_field :checkin, id: :reservation_checkin
-      = r.label :checkout
-      = r.text_field :checkout, id: :reservation_checkout
-      = r.label :number_of_beds
-      = r.text_field :number_of_beds, id: :number_of_beds
+      = form.text_field :name, id: :guest_name, placeholder: "Full Name"
+      = form.text_field :email, id: :guest_email, placeholder: "Email Address"
+    = form.fields_for :reservations do |r|
+      = r.text_field :checkin, id: :reservation_checkin, placeholder: "Arrival Date"
+      = r.text_field :checkout, id: :reservation_checkout, placeholder: "Departure Date"
+      = r.text_field :number_of_beds, id: :number_of_beds, placeholder: "Number of Guests"
 
-  .actions
-    = form.submit
+    .actions
+      = form.submit "Submit"
 
 :javascript
   var checkin_datepicker = new Pikaday({ field: document.getElementById('reservation_checkin') });
