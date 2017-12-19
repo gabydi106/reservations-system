@@ -7,4 +7,16 @@ class Reservation < ApplicationRecord
   def beds_assigned
     beds.ids
   end
+
+  def self.checkin_today
+    where(:checkin => Time.now)
+  end
+
+  def self.checkout_today
+    where(:checkout => Time.now)
+  end
+
+  def self.upcoming
+    where("checkin > ?", Date.today)
+  end
 end

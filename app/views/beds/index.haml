@@ -1,5 +1,7 @@
 %p#notice= notice
 %h1 Beds Available
+= link_to "New Bed", new_bed_path
+= link_to "View all Reservations", reservations_url
 %table
   %thead
     %tr
@@ -19,6 +21,5 @@
         %td= bed.available
         %td= link_to 'Edit', edit_bed_path(bed)
 %br/
-= link_to 'New Bed', new_bed_path
 
 %h4 Available Beds: #{@beds.count_available} out of #{@beds.all.count}
