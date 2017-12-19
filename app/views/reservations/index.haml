@@ -1,0 +1,29 @@
+%p#notice= notice
+%h1 Reservations for #{Time.now.strftime("%B %-d, %Y")}
+%table
+  %thead
+    %tr
+      %th Reservation ID
+      %th Checkin
+      %th Checkout
+      %th Guest
+      %th Number of Beds
+      %th Beds Reserved
+      %th{:colspan => "6"}
+  %tbody
+    - @reservations.each do |reservation|
+      %tr
+        %td= reservation.id
+        %td= reservation.checkin
+        %td= reservation.checkout
+        %td= reservation.guest.name
+        %td= reservation.number_of_beds
+        %td= reservation.beds_assigned
+        %td= link_to 'Show', reservation
+        %td= link_to 'Edit', edit_reservation_path(reservation)
+        %td= link_to 'Check In', reservation_check_in_path(reservation), method: :assign_beds
+        %td= link_to 'Check Out', reservation_check_out_path(reservation), method: :unassign_beds
+        %td= link_to 'Cancel Reservation', reservation, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Reservation', new_reservation_path
+
