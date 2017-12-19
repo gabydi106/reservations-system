@@ -26,7 +26,9 @@
         <td><%= reservation.beds_assigned %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Check In', reservation_check_in_path(reservation), method: :assign_beds %></td>
+        <td><%= link_to 'Check Out', reservation_check_out_path(reservation), method: :unassign_beds %></td>
+        <td><%= link_to 'Cancel Reservation', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

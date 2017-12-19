@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation, only: [:show, :edit, :update, :destroy, :assign_beds, :unassign_beds]
 
   def index
     @reservations = Reservation.all
@@ -39,6 +39,24 @@ class ReservationsController < ApplicationController
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def assign_beds
+    @beds = Bed.where("available is true")
+               .first(@reservation.number_of_beds)
+               .each do |bed|
+      unless (Bed.where(:reservation_id => @reservation.id).count == @reservation.number_of_beds)
+        bed.update_attributes(available: false, reservation_id: @reservation.id)
+      end
+    end
+    redirect_to reservations_url
+  end
+
+  def unassign_beds
+    @beds = Bed.where(:reservation_id => @reservation.id).each do |bed|
+      bed.update_attributes(available: true, reservation_id: nil)
+    end
+    redirect_to reservations_url
   end
 
   def destroy
