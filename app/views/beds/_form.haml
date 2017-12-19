@@ -12,10 +12,9 @@
     = form.label :available
     = form.text_field :available, id: :bed_available
 
-  = form.fields_for :reservations do |r|
-    .field
-      = r.label :id
-      = r.text_field :id, id: :reservation_id
+  .field
+    = form.label :reservation_id
+    = form.text_field :reservation_id, id: :reservation_id
 
   .actions
-    = form.submit
+    = form.submit "Submit"
