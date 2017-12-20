@@ -1,59 +1,71 @@
-.reservations-container {
-  display: flex;
-  max-height: 600px;
-  flex-direction: column;
+.reservations-index {
+  background: #F0EBD8;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-family: 'Work Sans', sans-serif;
+  color: #731963;
 
-  > .top-nav-container {
+  .reservations-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+    max-height: 650px;
+    flex-direction: column;
+    padding: 20px;
 
-    .upper-left-nav {
-      width: 50%;
-    }
+    > .top-nav-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
 
-    .upper-right-nav {
-      width: 50%;
-      text-align: right;
-    }
-  }
-
-  >.reservations-columns-container {
-    display: flex;
-    flex-direction: row;
-
-    .reservations-column {
-      width: 33%;
-      border-right: 2px solid #d3d3d3;
-      border-bottom: 2px solid #d3d3d3;
-      border-top: 2px solid #d3d3d3;
-      padding: 10px;
-      overflow-y: scroll;
-
-      h2 {
-        padding-bottom: 5px;
-        border-bottom: 1px solid #d3d3d3;
-      }
-
-      .reservations-item {
-        display: flex;
-        flex-flow: row wrap;
-        align-content: flex-end;
-      }
-
-      .reservation-details {
-        border-bottom: 1px solid #d3d3d3;
+      .upper-left-nav {
         width: 50%;
       }
 
-      .reservation-action-item {
+      .upper-right-nav {
         width: 50%;
-        border-bottom: 1px solid #d3d3d3;
+        text-align: right;
+      }
+    }
+
+    >.reservations-columns-container {
+      display: flex;
+      flex-direction: row;
+
+      .reservations-column {
+        width: 33%;
+        background: white;
+        border-radius: 5px;
+        border-bottom: 4px solid #d3d3d3;
+        border-top: 2px solid #d3d3d3;
+        margin: 10px;
+        padding: 10px;
+        overflow-y: scroll;
+
+        h2 {
+          padding-bottom: 5px;
+          border-bottom: 1px solid #d3d3d3;
+        }
+
+        .reservations-item {
+          display: flex;
+          flex-flow: row wrap;
+          align-content: flex-end;
+        }
+
+        .reservation-details {
+          border-bottom: 1px solid #d3d3d3;
+          width: 50%;
+        }
+
+        .reservation-action-item {
+          width: 50%;
+          border-bottom: 1px solid #d3d3d3;
+        }
       }
     }
   }
-
 }
-

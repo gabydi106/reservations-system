@@ -1,62 +1,63 @@
-.reservations-container
-  %p#notice= notice
-  .top-nav-container
-    .upper-left-nav
-      %h1 Reservations for #{Time.now.strftime("%B %-d, %Y")}
-    .upper-right-nav
-      = link_to 'New Reservation', new_guest_path
-      = link_to 'See Available Beds', beds_path
-  .reservations-columns-container
-    .reservations-column
-      %h2 Arriving Today
-      - @reservations.checkin_today.each do |reservation|
-        .reservations-item
-          .reservation-details
-            %p Reservation ID: #{reservation.id}
-            %p
-              Guest Name:
-              %strong #{reservation.guest.name}
-            %p Checkout Date: #{reservation.checkout}
-            %p Number of Guests: #{reservation.number_of_beds}
-            %p Beds Assigned: #{reservation.beds_assigned}
-          .reservation-action-item
-            %p= link_to 'Show', reservation
-            %p= link_to 'Edit', edit_reservation_path(reservation)
-            %p= link_to 'Check In', reservation_check_in_path(reservation), method: :assign_beds
-            %p= link_to 'Cancel Reservation', reservation, method: :delete, data: { confirm: 'Are you sure?' }
+.reservations-index
+  .reservations-container
+    %p#notice= notice
+    .top-nav-container
+      .upper-left-nav
+        %h1 Reservations for #{Time.now.strftime("%B %-d, %Y")}
+      .upper-right-nav
+        = link_to 'New Reservation', new_guest_path
+        = link_to 'See Available Beds', beds_path
+    .reservations-columns-container
+      .reservations-column
+        %h2 Arriving Today
+        - @reservations.checkin_today.each do |reservation|
+          .reservations-item
+            .reservation-details
+              %p Reservation ID: #{reservation.id}
+              %p
+                Guest Name:
+                %strong #{reservation.guest.name}
+              %p Checkout Date: #{reservation.checkout}
+              %p Number of Guests: #{reservation.number_of_beds}
+              %p Beds Assigned: #{reservation.beds_assigned}
+            .reservation-action-item
+              %p= link_to 'Show', reservation
+              %p= link_to 'Edit', edit_reservation_path(reservation)
+              %p= link_to 'Check In', reservation_check_in_path(reservation), method: :assign_beds
+              %p= link_to 'Cancel Reservation', reservation, method: :delete, data: { confirm: 'Are you sure?' }
 
-    .reservations-column
-      %h2 Departing Today
-      - @reservations.checkout_today.each do |reservation|
-        .reservations-item
-          .reservation-details
-            %p Reservation ID: #{reservation.id}
-            %p
-              Guest Name:
-              %strong #{reservation.guest.name}
-            %p Checkout Date: #{reservation.checkout}
-            %p Number of Guests: #{reservation.number_of_beds}
-            %p Beds Assigned: #{reservation.beds_assigned}
-          .reservation-action-item
-            %p= link_to 'Show', reservation
-            %p= link_to 'Edit', edit_reservation_path(reservation)
-            %p= link_to 'Check Out', reservation_check_out_path(reservation), method: :unassign_beds
-            %p= link_to 'Cancel Reservation', reservation, method: :delete, data: { confirm: 'Are you sure?' }
+      .reservations-column
+        %h2 Departing Today
+        - @reservations.checkout_today.each do |reservation|
+          .reservations-item
+            .reservation-details
+              %p Reservation ID: #{reservation.id}
+              %p
+                Guest Name:
+                %strong #{reservation.guest.name}
+              %p Checkout Date: #{reservation.checkout}
+              %p Number of Guests: #{reservation.number_of_beds}
+              %p Beds Assigned: #{reservation.beds_assigned}
+            .reservation-action-item
+              %p= link_to 'Show', reservation
+              %p= link_to 'Edit', edit_reservation_path(reservation)
+              %p= link_to 'Check Out', reservation_check_out_path(reservation), method: :unassign_beds
+              %p= link_to 'Cancel Reservation', reservation, method: :delete, data: { confirm: 'Are you sure?' }
 
-    .reservations-column
-      %h2 Upcoming Reservations
-      - @reservations.upcoming.each do |reservation|
-        .reservations-item
-          .reservation-details
-            %p Reservation ID: #{reservation.id}
-            %p
-              Guest Name:
-              %strong #{reservation.guest.name}
-            %p Checkin Date: #{reservation.checkin}
-            %p Checkout Date: #{reservation.checkout}
-            %p Number of Guests: #{reservation.number_of_beds}
-          .reservation-action-item
-            %p= link_to 'Show', reservation
-            %p= link_to 'Edit', edit_reservation_path(reservation)
-            %p= link_to 'Cancel Reservation', reservation, method: :delete, data: { confirm: 'Are you sure?' }
+      .reservations-column
+        %h2 Upcoming Reservations
+        - @reservations.upcoming.each do |reservation|
+          .reservations-item
+            .reservation-details
+              %p Reservation ID: #{reservation.id}
+              %p
+                Guest Name:
+                %strong #{reservation.guest.name}
+              %p Checkin Date: #{reservation.checkin}
+              %p Checkout Date: #{reservation.checkout}
+              %p Number of Guests: #{reservation.number_of_beds}
+            .reservation-action-item
+              %p= link_to 'Show', reservation
+              %p= link_to 'Edit', edit_reservation_path(reservation)
+              %p= link_to 'Cancel Reservation', reservation, method: :delete, data: { confirm: 'Are you sure?' }
 
