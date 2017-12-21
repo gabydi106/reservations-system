@@ -1,0 +1,47 @@
+.beds-index {
+  background: #F0EBD8;
+  top: 0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  font-family: 'Work Sans', sans-serif;
+  color: #731963;
+  padding: 20px;
+
+  > .top-nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+
+    .upper-left-nav {
+      width: 50%;
+    }
+
+    .upper-right-nav {
+      width: 50%;
+      text-align: right;
+    }
+  }
+
+  >.beds-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    table {
+      border: solid 1px;
+      margin: 20px;
+      width: 150px;
+      height: 150px;
+
+    }
+
+    table.available {
+      background-color: #DBF4A7;
+    }
+  }
+}

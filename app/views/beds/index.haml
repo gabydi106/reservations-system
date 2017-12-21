@@ -1,25 +1,20 @@
-%p#notice= notice
-%h1 Beds Available
-= link_to "New Bed", new_bed_path
-= link_to "View all Reservations", reservations_url
-%table
-  %thead
-    %tr
-      %th Bed #
-      %th Reservation #
-      %th Checkin
-      %th Checkout
-      %th Available
-      %th{:colspan => "3"}
-  %tbody
+.beds-index
+  .top-nav-container
+    %p#notice= notice
+    .upper-left-nav
+      %h1 Beds Available
+      %h4 Available Beds: #{@beds.count_available} out of #{@beds.all.count}
+    .upper-right-nav
+      = link_to "New Bed", new_bed_path
+      = link_to "View all Reservations", reservations_url
+  .beds-container
     - @beds.each do |bed|
-      %tr
-        %td= bed.id
-        %td= bed.reservation ? (link_to bed.reservation.id, reservation_url(bed.reservation.id)) : nil
-        %td= bed.reservation ? bed.reservation.checkin : nil
-        %td= bed.reservation ? bed.reservation.checkout : nil
-        %td= bed.available ? "yes" : "no"
-        %td= link_to 'Edit', edit_bed_path(bed)
-%br/
-
-%h4 Available Beds: #{@beds.count_available} out of #{@beds.all.count}
+      %table{:class => "#{bed.available ? 'available' : 'reserved'}"}
+        %tr
+          %td
+            %p= "Bed # #{bed.id}"
+            %p= "Reservation ID: #{bed.reservation ? (link_to bed.reservation.id, reservation_url(bed.reservation.id)) : "n/a"}"
+            %p= bed.reservation ? bed.reservation.checkin : nil
+            %p= bed.reservation ? bed.reservation.checkout : nil
+            %p= bed.available ? "available" : "reserved"
+            %p= link_to 'Edit', edit_bed_path(bed)
