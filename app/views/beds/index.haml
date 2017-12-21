@@ -18,7 +18,7 @@
         %td= bed.reservation ? (link_to bed.reservation.id, reservation_url(bed.reservation.id)) : nil
         %td= bed.reservation ? bed.reservation.checkin : nil
         %td= bed.reservation ? bed.reservation.checkout : nil
-        %td= bed.available
+        %td= bed.available ? "yes" : "no"
         %td= link_to 'Edit', edit_bed_path(bed)
 %br/
 
