@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Work Sans';
+    src: font-url("WorkSans-Regular.ttf") unquote("format('truetype')");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: font-url("WorkSans-Light.ttf") unquote("format('truetype')");
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    src: font-url("WorkSans-Thin.ttf") unquote("format('truetype')");
+    font-weight: 100;
+    font-style: normal;
+}
